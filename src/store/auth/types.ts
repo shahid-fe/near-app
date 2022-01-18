@@ -1,16 +1,11 @@
 export interface User {
-  email: string
-  isPasswordAdded: boolean
-  isTeamInfoAdded: boolean
-  role: string
-  name?: string
-  img?: string | null
+  userId: string;
+  name: string
 }
 
 export type AuthState = {
   user: User
   token: string | null
   isAuthenticated: boolean
-  isLoading: boolean
-  error: string | null
+  stepNo: number;
 }

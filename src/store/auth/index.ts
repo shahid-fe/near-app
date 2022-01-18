@@ -1,2 +1,2 @@
-export { setAuthenticated, resetAuth, setUser } from "./authSlice"
+export { setAuthenticated, resetAuth, setUser, setToken } from "./authSlice"
 export { default } from "./authSlice"

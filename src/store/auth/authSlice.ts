@@ -4,16 +4,12 @@ import { AuthState, User } from "./types"
 
 const initialState: AuthState = {
   user: {
-    isPasswordAdded: false, // for role based routes testing
-    isTeamInfoAdded: false, // for role based routes testing
-    email: "",
-    role: "", // for role based routes testing
+    userId: "",
     name: "",
   },
   token: null,
-  isAuthenticated: false, // for role based routes testing
-  isLoading: false,
-  error: null,
+  isAuthenticated: false,
+  stepNo: 0,
 }
 
 const authSlice = createSlice({
@@ -26,10 +22,13 @@ const authSlice = createSlice({
     setUser(state, { payload }: PayloadAction<User>) {
       state.user = payload
     },
+    setToken(state, {payload}: PayloadAction<string>) {
+      state.token = payload;
+    },
     resetAuth: () => initialState,
   },
 })
 
-export const { setAuthenticated, resetAuth, setUser } = authSlice.actions
+export const { setAuthenticated, resetAuth, setUser, setToken } = authSlice.actions
 
 export default authSlice.reducer
