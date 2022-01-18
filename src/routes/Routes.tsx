@@ -1,20 +1,24 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import AuthRoutes from "./AuthRoutes"
-import PrivateRoutes from "./PrivateRoutes"
+import { useSelector } from "react-redux"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { RootState } from "../store"
 
-const Routes: React.FC = () => {
+import PrivateRoutes from "./PrivateRoutes"
+import PublicRoutes from "./PublicRoutes"
+
+const AppRoutes = ()  => {
+  const { token } = useSelector((state: RootState) => state.auth)
+  
   return (
     <Router>
-      <Switch>
-        <Route path={'/app'}>
-          <PrivateRoutes />
+      <Routes>
+        <Route path={'/app'} element={<PrivateRoutes />}>
         </Route>
-        <Route path="">
-          <AuthRoutes />
+        <Route path={'/auth/*'} element={<PublicRoutes />}>
         </Route>
-      </Switch>
+        
+      </Routes>
     </Router>
   )
 }
 
-export default Routes
+export default AppRoutes

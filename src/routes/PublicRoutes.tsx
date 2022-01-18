@@ -1,18 +1,17 @@
-import { Redirect, Route, Switch } from "react-router-dom"
-import { PublicRoutesMap } from "./config"
+import { Route, Routes } from 'react-router-dom';
+import Header from '../components/Header/Header';
+import Signup from '../pages/Signup';
+import { PublicRoutesMap } from './config';
 
 const PublicRoutes: React.FC = () => {
   return (
-      <Switch>
-        <Redirect exact to={PublicRoutesMap.LOGIN} from="/" />
-        <Route path={PublicRoutesMap.FORGOT_PASSWORD}>
-      
-        </Route>
-        <Route path={PublicRoutesMap.REGISTER}>
-          {/* <Signup /> */}
-        </Route>
-      </Switch>
-  )
-}
+    <>
+      <Header />
+      <Routes>
+        <Route path={PublicRoutesMap.REGISTER} element={<Signup />}></Route>
+      </Routes>
+    </>
+  );
+};
 
-export default PublicRoutes
+export default PublicRoutes;

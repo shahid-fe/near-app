@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { useSelector } from "react-redux"
-import { Redirect, useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { RootState } from "../store"
 import PublicRoutes from "./PublicRoutes"
 
@@ -13,12 +13,12 @@ const isExlcludedPath = (path: string): boolean => {
 const AuthRoutes = () => {
   const {
     isAuthenticated,
-  } = useSelector((state: RootState) => state.auth)
-  const {
-    location: { pathname },
-  } = useHistory()
-  if (isAuthenticated && isExlcludedPath(pathname)) {
-    return <Redirect to={'/app'} />
+  } = useSelector((state: RootState) => state.auth);
+  const navigate = useNavigate();
+
+ 
+  if (isAuthenticated && isExlcludedPath(window.location.pathname)) {
+    navigate('/app');
   }
   return <PublicRoutes />
 }

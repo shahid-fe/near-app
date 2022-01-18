@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { Switch, Route, useHistory } from "react-router-dom"
+import { useNavigate, Route, Routes } from "react-router-dom"
 import { useSelector } from "react-redux"
 import {  RouteType } from "./config"
 
@@ -11,13 +11,13 @@ type MapAllowedRoutesType = {
 
 const MapAllowedRoutes = ({ routes }: MapAllowedRoutesType) => {
   const { token } = useSelector((state: RootState) => state.auth)
-  const history = useHistory();
+  const navigate = useNavigate();
 
   if(!token) {
-    history.push('/login');
+    navigate('/register');
   }
   return (
-    <Switch>
+    <Routes>
       {routes?.map(route => {
         const { path, component: Component, title, ...rest } = route
         return path && Component ? (
@@ -28,7 +28,7 @@ const MapAllowedRoutes = ({ routes }: MapAllowedRoutesType) => {
           ""
         )
       })}
-    </Switch>
+    </Routes>
   )
 }
 

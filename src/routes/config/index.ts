@@ -10,7 +10,6 @@ export type RouteType = {
 export const PublicRoutesMap = {
   LOGIN: "/login",
   REGISTER: "/register",
-  FORGOT_PASSWORD: "/forgot-password",
   RESET_PASSWOR: "/set-password",
 }
 
