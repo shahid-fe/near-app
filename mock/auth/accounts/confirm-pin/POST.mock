@@ -1,0 +1,14 @@
+HTTP/1.1 500 OK
+Content-Type: application/json
+Set-Cookie: JSESSIONID=abcde12345; Path=/; HttpOnly; Expires=Fri, 5 Oct 2021 14:28:00 GMT;
+
+{
+    "success": false,
+    "payload": {},
+    "errors": {},
+    "description": {
+        "Email_or_PIN": [
+            "Email or PIN incorrect."
+        ]
+    }
+}

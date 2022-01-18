@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "success": true,
+    "payload": {
+        "email": "bilal.tahir@emumba.com",
+        "full_name": "Bilal Tahir",
+        "last_login": "2021-02-18T22:32:42.051470Z",
+        "created_on": "2021-02-18T14:29:22.303686Z",
+        "is_password_set": true,
+        "last_modified_at": "2021-02-18T23:41:23.474621Z",
+        "role": {
+            "name": "Customer Admin",
+            "code": "customer-admin"
+        },
+        "is_team_info_added": false
+    },
+    "errors": {},
+    "description": "Password successfully updated."
+}
