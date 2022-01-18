@@ -9,4 +9,5 @@ export type PrimaryButtonType = {
   children: ReactNode;
   background?: string;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 };

@@ -13,9 +13,14 @@ export const HeaderStyled = styled.div`
   align-items: center;
   font-size: ${FONT_SIZE.large};
   font-weight: bold;
+  font-size: 16px;
 
   .home {
     color: ${COLORS.accent};
+  }
+
+  .title {
+    font-size: ${FONT_SIZE.large};
   }
 
 `

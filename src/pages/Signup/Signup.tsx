@@ -3,8 +3,9 @@ import { SignupStyled } from './Signup.styles';
 import SimpleInput from '../../components/SimpleInput';
 import PrimaryButton from '../../components/PrimaryButton';
 import { COLORS } from '../../styles/utils';
+import { SignupType } from './Signup.types';
 
-export const Signup = (): JSX.Element => {
+export const Signup = ({ OnContinueClick }: SignupType): JSX.Element => {
   const [isEmailTab, setEmailTab] = useState<boolean>(true);
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
@@ -47,7 +48,14 @@ export const Signup = (): JSX.Element => {
         <SimpleInput placeholder="Ex (337) 378 8383" value={phone} onChange={onPhoneChange} />
       )}
       <div className="container flex">
-        <PrimaryButton disabled={isEmailTab ? !email : !phone}>Continue</PrimaryButton>
+        <PrimaryButton
+          onClick={() => {
+            OnContinueClick({ isEmailType: isEmailTab, content: isEmailTab ? email : phone });
+          }}
+          disabled={isEmailTab ? !email : !phone}
+        >
+          Continue
+        </PrimaryButton>
       </div>
       <p className="center-text">
         by clicking continue you must agree to near labs <span className="link-text">Terms & Conditions</span> ans{' '}

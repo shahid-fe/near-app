@@ -3,11 +3,12 @@ import { PrimaryButtonStyled } from "./PrimaryButton.styles";
 import {PrimaryButtonType} from "./PrimayButton.types";
 
 
-const PrimaryButton = ({className, disabled, children, background}: PrimaryButtonType): JSX.Element => {
+const PrimaryButton = ({onClick, className, disabled, children, background}: PrimaryButtonType): JSX.Element => {
     return <PrimaryButtonStyled 
         disabled={disabled}
         background={background}
         className={className}
+        onClick={onClick}
     >{children} <ArrowRight /></PrimaryButtonStyled>
 
 };

@@ -12,13 +12,13 @@ const HeaderContent = ({ stepNo }: HeaderContentType = defaultHeaderContent): JS
   if (stepNo === 1)
     return (
       <>
-        <HomeIcon /> <span className='home'>Home</span>page
+        <HomeIcon /> <span className='title home'>Home</span>page
       </>
     );
   if (stepNo === 2)
     return (
-      <div>
-        Verfication <CloseIcon />
+      <div className='title'>
+        Verfication 
       </div>
     );
   if (stepNo === 3)
